@@ -18,7 +18,6 @@ rn = []
 
 bot.on('text', (msg) => {
   let t = msg.text.toLowerCase()
-  let txtw = '0'
   let chid = msg.chat.id
 
   rt[chid] = rt[chid] || ''
@@ -30,7 +29,7 @@ bot.on('text', (msg) => {
   rt[chid] = t
 
   if (rn[chid] == 2) {
-    txtw = msg.text
+    bot.sendMessage(msg.chat.id, msg.text)
     rn[chid] = 0
     rt[chid] = ''
   }
@@ -49,7 +48,7 @@ bot.onText(thxm, (msg) => {
   else if (t.indexOf('dank') != -1) txtq = '0/!'
   else if (t.indexOf('grazie') != -1) txtq = 'Mamma mia! Pizza mozzarella!'
   else if (t.indexOf('merci') != -1 || t.indexOf('мерси') != -1)
-    txtq = '🥐:coffee:'
+    txtq = '🥐☕'
   else if (t.indexOf('жал') == -1) txtq = 'Спасибо!!!'
 
   if (t.indexOf('жаль') != -1) txtw = 'Сейчас ужалю!'
